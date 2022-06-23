@@ -3,16 +3,7 @@ import { RepositoryItem } from "./RepositoryItem"
 
 import '../styles/repositories.scss'
 
-const repository = {
-    repositoryName: 'Teste',
-    description: 'Forms in React',
-    link: 'https://github.com/gianilch',
-}
-
-//https://api.github.com/users/gianilch/repos
-
 export function RepositoryList() {
-
     const [repositories, setRepositories] = useState([])
 
     useEffect(() => {
@@ -26,10 +17,7 @@ export function RepositoryList() {
             <h1>Lista de Repositórios</h1>
 
             <ul>
-                <RepositoryItem repository={repository} />
-                <RepositoryItem repository={repository} />
-                <RepositoryItem repository={repository} />
-                <RepositoryItem repository={repository} />
+                {repositories.map(repository => <RepositoryItem key={repository.name} repository={repository} /> )}
             </ul>
         </section>
     )
